@@ -49,6 +49,11 @@ namespace ConsoleApp
             return suma;
         }
 
+        static void Pedir(string m, ref char n)
+        {
+            Console.Write("{0} ", m);
+            n = char.Parse(Console.ReadLine());
+        }
         static void Pedir(string m, ref int n)
         {
             Console.Write("{0} ", m);
@@ -58,30 +63,28 @@ namespace ConsoleApp
         static void Pedir(string m, ref double n)
         {
             Console.Write("{0} ", m);
-            n = int.Parse(Console.ReadLine());
+            n = double.Parse(Console.ReadLine());
         }
 
-        static void Pedir(string m, string n)
+        static void Pedir(string m, ref string n)
         {
             Console.Write("{0} ", m);
             n = Console.ReadLine();
         }
-
+        static void Pedir(string m)
+        {
+            Console.Write("{0} ", m);
+        }
         /*----------------- Ejercicios de estudios ---------------*/
         // Diseñar un algoritmo que permita ingresar por teclado el nombre,
         // edad y ciudad de una persona, los resultados deben mostrarse en pantalla.
         static void Ejercicio1()
         {
-            string nombre, ciudad;
-            int edad;
-            Console.Write("Ingrese nombre: ");
-            nombre = Console.ReadLine();
-
-            Console.Write("Ingrese edad: ");
-            edad = int.Parse(Console.ReadLine());
-
-            Console.Write("Ingrese ciudad: ");
-            ciudad = Console.ReadLine();
+            string nombre = "", ciudad = "";
+            int edad = 0;
+            Pedir("Ingrese nombre: ", ref nombre);
+            Pedir("Ingrese edad: ", ref edad);
+            Pedir("Ingrese ciudad: ", ref ciudad);
 
             Console.WriteLine("\nNombre: " + nombre + "\nEdad: " + edad + "\nCiudad: " + ciudad);
         }
@@ -90,26 +93,20 @@ namespace ConsoleApp
         // trabajador teniendo en cuenta los días que trabajo y el valor de cada día.
         static void Ejercicio2()
         {
-            char cont;
-            string nombre;
-            double diasTrab, valorDia, suma = 0;
+            char cont = ' ';
+            string nombre = "";
+            double diasTrab = 0, valorDia = 0, suma = 0;
             do
             {
-                Console.Write("Ingrese nombre del trabajador: ");
-                nombre = Console.ReadLine();
-
-                Console.Write("Valor del dia: ");
-                valorDia = double.Parse(Console.ReadLine());
-
-                Console.Write("Dias trabajados: ");
-                diasTrab = double.Parse(Console.ReadLine());
+                Pedir("Ingrese nombre del trabajador: ", ref nombre);
+                Pedir("Valor del dia: ", ref valorDia);
+                Pedir("Dias trabajados: ", ref diasTrab);
 
                 suma = valorDia * diasTrab;
 
                 Console.WriteLine("\nNombre: " + nombre + "\nValor del día: " + valorDia + "\nDias Trabajados: " + diasTrab + "\nTotal del pago: " + suma);
 
-                Console.Write("\nContinuar con otro tranajdor S/N?: ");
-                cont = char.Parse(Console.ReadLine());
+                Pedir("\nContinuar con otro tranajdor S/N?: ", ref cont);
             } while (cont == 'S' || cont == 's');
         }
 
@@ -123,12 +120,12 @@ namespace ConsoleApp
             do
             {
                 Console.Clear();
-                Console.WriteLine("Calculadora");
-                Console.WriteLine("1. Suma");
-                Console.WriteLine("2. Resta");
-                Console.WriteLine("3. Multiplicacion");
-                Console.WriteLine("4. Division");
-                Console.WriteLine("5. Salir");
+                Pedir("Calculadora");
+                Pedir("1. Suma");
+                Pedir("2. Resta");
+                Pedir("3. Multiplicacion");
+                Pedir("4. Division");
+                Pedir("5. Salir");
                 opc = int.Parse(Console.ReadLine());
 
                 switch (opc)
@@ -155,12 +152,9 @@ namespace ConsoleApp
 
         static void Datos(ref double n1, ref double n2)
         {
-            Console.WriteLine("\nDatos de ecuaciones aritmeticas");
-            Console.Write("\nIngrese un num#: ");
-            n1 = double.Parse(Console.ReadLine());
-
-            Console.Write("Ingrese un num#: ");
-            n2 = double.Parse(Console.ReadLine());
+            Pedir("\nDatos de ecuaciones aritmeticas");
+            Pedir("\nIngrese un num#: ", ref n1);
+            Pedir("Ingrese un num#: ", ref n2);
         }
 
         // Diseñar un algoritmo que permita aplicar un descuento en el supermercado
@@ -168,17 +162,15 @@ namespace ConsoleApp
         // procedimiento.
         static void Ejercicio4()
         {
-            char resp;
+            char resp = ' ';
+            string prod = "";
+            double precio = 0, desc = 0;
             do
             {
-                Console.Write("Nombre del producto: ");
-                string prod = Console.ReadLine();
+                Pedir("Nombre del producto: ", ref prod);
+                Pedir("Precio del producto: ", ref precio);
 
-                Console.Write("Precio del producto: ");
-                double precio = double.Parse(Console.ReadLine());
-
-                Console.Write("Porcentaje Descuento del producto %: ");
-                double desc = double.Parse(Console.ReadLine());
+                Pedir("Porcentaje Descuento del producto %: ", ref desc);
 
                 double totalDes = (precio * desc) / 100;
                 double aplicarDesc = precio - totalDes;
@@ -186,8 +178,7 @@ namespace ConsoleApp
                 Console.Write("\nProducto: {0}", prod);
                 Console.Write("\nPrecio con descuento: {0}", aplicarDesc);
 
-                Console.Write("\n\nDesea realizar otra compra S/N: ");
-                resp = char.Parse(Console.ReadLine());
+                Pedir("\n\nDesea realizar otra compra S/N: ", ref resp);
             } while (resp == 'S' || resp == 's');
         }
 
@@ -245,9 +236,21 @@ namespace ConsoleApp
         }
 
         //Realizar un algoritmo de tipo de cambio de moneda sabiendo que
-        //1 dólar es igual a 3.34 soles peruanos.
+        //1 dólar es igual a 35.5 córdobas.
         static void Ejercicio8()
-        { }
+        {
+            char r = ' ';
+            double dolarAcord = 0, dolar = 0, resp = 0;
+            do
+            {
+                Pedir("Ingrese el valor del dólar actual: ", ref dolarAcord);
+                Pedir("Ingrese la cantidad en dólares: ", ref dolar);
+                resp = dolarAcord * dolar;
+                Console.Write("Cambio a moneda Córdoba: {0} ", resp.ToString("0.##"));
+
+                Pedir("\nDesea seguir S/N: ", ref r);
+            } while (r == 'S' || r == 's');
+        }
 
         /*
          Defina un algoritmo que permita calcular la nota final de un alumno, teniendo en cuenta que ha realizado 
@@ -306,7 +309,7 @@ namespace ConsoleApp
             //Console.WriteLine(b);
             //Console.WriteLine(c);
 
-	    //Ejercicios Algoritmos Secuenciales
+            //Ejercicios Algoritmos Secuenciales
             //Ejercicio1();
             //Ejercicio2();
             //Ejercicio3();
@@ -314,7 +317,7 @@ namespace ConsoleApp
             //Ejercicio5();
             //Ejercicio6();
             //Ejercicio7();
-            //Ejercicio8();
+            Ejercicio8();
             //Ejercicio9();
             //Ejercicio10();
             //Ejercicio11();
