@@ -363,6 +363,7 @@ namespace ConsoleApp
             double afp = (diasMult * 10) / 100;
             double invFondo = (diasMult * 0.38) / 100;
             double seguroInv = (diasMult * 1.36) / 100;
+            double salActual = diasMult - pension;
 
             Console.Write("\nSalario de dias trabajados sin deducciones: {0}", diasMult.ToString("0.##"));
             Console.Write("\nCantidad de dias trabajados: {0}", diasTrab.ToString("0.##"));
@@ -371,6 +372,8 @@ namespace ConsoleApp
             Console.Write("\nIngreso a su AFP 10%: {0}", afp.ToString("0.##"));
             Console.Write("\nCobro por la administración 0.38%: {0}",invFondo.ToString("0.##"));
             Console.Write("\nSeguro de Invalidez: {0}", seguroInv.ToString("0.##"));
+            Console.Write("\nDeducciones: {0}", pension.ToString("0.##"));
+            Console.Write("\nSalario de dias trabajados con deducciones: {0}", salActual.ToString("0.##"));
         }
         static void Main(string[] args)
         {
@@ -396,7 +399,7 @@ namespace ConsoleApp
             //Ejercicio9();
             //Ejercicio10();
             //Ejercicio11();
-            //Ejercicio12();
+            Ejercicio12();
             Console.ReadKey();
         }
     }
