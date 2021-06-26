@@ -39,6 +39,22 @@ namespace ConsoleApp
             return 0;
         }
 
+        // Si pienso en un número, le sumo 9, multiplico al resultado por 3,
+        // al total le resto 5 y finalmente divido lo mobtenido por 4, el 
+        // resultado final es 7. ¿Cuál fue el número que pénse al comienzo?
+        static void resultado7()
+        {
+            int nPensado = 0;
+            Console.WriteLine("El resultado tiene que dar a 7");
+            Pedir("Número pensasdo: ", ref nPensado);
+            double suma = nPensado + 9;
+            double mult = suma * 3;
+            double resta = mult - 5;
+            double div = resta / 4;
+            Console.Write("Respuesta: {0}", div.ToString("0.##"));
+            Console.WriteLine("\nNúmero pensado: {0}", nPensado);
+        }
+
         static int simpleArraySum(int[] arr2)
         {
             int suma = 0;
@@ -263,12 +279,30 @@ namespace ConsoleApp
           *  La tercera nota tiene un peso de 30%
          */
         static void Ejercicio9()
-        { }
+        {
+            int[] notas = new int[3];
+            for (int i = 0; i < notas.Length; i++)
+            {
+                Pedir("De la nota: ", ref notas[i]);
+            }
+            double n1 = notas[0] * 25 / 100;
+            double n2 = notas[1] * 45 / 100;
+            double n3 = notas[2] * 30 / 100;
+
+            double suma = n1 + n2 + n3;
+            Console.WriteLine("\nNota Final {0}", suma);
+        }
 
         //Defina un algoritmo que permita calcular el nuevo salario de un trabajador si a
         //este le incrementaron su sueldo en un 25% adicional a su sueldo anterior.
         static void Ejercicio10()
-        { }
+        {
+            double sal = 0;
+            Pedir("De su salario: ", ref sal);
+            double calc = sal * 25 / 100;
+            double nuevoSal = sal + calc;
+            Console.WriteLine("\nSalario anterior {0} aumento del 25% {1}", sal, nuevoSal);
+        }
 
         /*
          Un alumno desea saber cual será su calificación final en la materia de Matemáticas, dicha calificación 
@@ -283,7 +317,30 @@ namespace ConsoleApp
             Hallar la calificación final de todas notas
          */
         static void Ejercicio11()
-        { }
+        {
+            double exParc = 0, suma = 0, exfinal = 0, trab = 0;
+            int[] parciales = new int[3];
+            for (int i = 0; i < parciales.Length; i++)
+            {
+                Pedir("De la nota de examenes parciales: ", ref exParc);
+                suma += exParc;
+            }
+
+            double nParc = (suma * 55) / 100;
+            double nParcF = nParc / parciales.Length;
+            Pedir("De la nota del examen final: ", ref exfinal);
+            Pedir("De la nota del trabajo final: ", ref trab);
+
+            double exf = exfinal * 30 / 100;
+            double trabF = trab * 15 / 100;
+
+            Console.WriteLine("\nNota de examenes parciales: {0}", nParcF.ToString("0.##"));
+            Console.WriteLine("\nNota de examen final: {0}", exf);
+            Console.WriteLine("\nNota de trabajo final: {0}", trabF);
+
+            double nFinal = nParcF + exf + trabF;
+            Console.WriteLine("\nCalificación Final de Matemáticas es: {0}", nFinal.ToString("0.##"));
+        }
 
         /*
          Tenemos un trabajador gana S/69.23 al día, durante 26 días laborables, nos pide hallar cuanto 
@@ -308,6 +365,7 @@ namespace ConsoleApp
             //Console.WriteLine(a);
             //Console.WriteLine(b);
             //Console.WriteLine(c);
+            //resultado7();
 
             //Ejercicios Algoritmos Secuenciales
             //Ejercicio1();
@@ -317,10 +375,10 @@ namespace ConsoleApp
             //Ejercicio5();
             //Ejercicio6();
             //Ejercicio7();
-            Ejercicio8();
+            //Ejercicio8();
             //Ejercicio9();
             //Ejercicio10();
-            //Ejercicio11();
+            Ejercicio11();
             //Ejercicio12();
             Console.ReadKey();
         }
