@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace ConsoleApp
 {
-    class Program
+    public class Program
     {
         /*
          Se proporciona una matriz A no vacía que consta de N números enteros. La matriz contiene un número 
@@ -55,7 +55,7 @@ namespace ConsoleApp
             Console.WriteLine("\nNúmero pensado: {0}", nPensado);
         }
 
-        static int simpleArraySum(int[] arr2)
+        public static int simpleArraySum(int[] arr2)
         {
             int suma = 0;
             for (int i = 0; i < arr2.Length; i++)
@@ -375,6 +375,7 @@ namespace ConsoleApp
             Console.Write("\nDeducciones: {0}", pension.ToString("0.##"));
             Console.Write("\nSalario de dias trabajados con deducciones: {0}", salActual.ToString("0.##"));
         }
+               
         static void Main(string[] args)
         {
             //int[] arr = { 9, 3, 9, 3, 9, 7, 9 };
@@ -399,7 +400,10 @@ namespace ConsoleApp
             //Ejercicio9();
             //Ejercicio10();
             //Ejercicio11();
-            Ejercicio12();
+            //Ejercicio12();
+
+            CondicionalesSimples CS = new CondicionalesSimples();
+            
             Console.ReadKey();
         }
     }
