@@ -30,7 +30,7 @@ namespace ConsoleApp
             Console.Write("{0} ", m);
             n = Console.ReadLine();
         }
-        static void Pedir(string m)
+        static void Imp(string m)
         {
             Console.Write("{0} ", m);
         }
@@ -49,7 +49,7 @@ namespace ConsoleApp
             suma = n1 + n2;
 
             if (suma >= 0)
-                Console.Write("\nLa suma es: {0}", suma.ToString("0.##"));
+                Console.Write("\nLa suma es: {0}", suma.ToString("N2"));
             else if (suma < 0)
                 Console.Write("La suma es negativa!");
         }
@@ -86,9 +86,83 @@ namespace ConsoleApp
             double result = Math.Ceiling(porc);
 
             if (clasesAusentes >= result)
-                Console.Write("\nNota desaprobatoria 0! \nPor Inhasistencia");
+                Imp("\nNota desaprobatoria 0! \nPor Inhasistencia");
             else
-                Console.Write("\nAprobado!");
+                Imp("\nAprobado!");
+        }
+
+        //Diseña un algoritmo que lea 2 números y visualice si son positivos.
+        public void condicional4()
+        {
+            double n1 = 0, n2 = 0;
+            Pedir("Ingrese el 1er número: ", ref n1);
+            Pedir("Ingrese el 2do número: ", ref n2);
+
+            if (n1 > 0 && n2 > 0)
+                Console.WriteLine("Son números positivos! {0} y {1}", n1, n2);
+            else if (n1 > 0 && n2 < 0)
+                Console.WriteLine("El número 1 es positivo {0}", n1);
+            else if (n2 > 0 && n1 < 0)
+                Console.WriteLine("El número 2 es positivo {0}", n2);
+        }
+
+        /*Un hombre desea saber cuanto dinero se genera por concepto de intereses 
+        en relación la cantidad que tiene en inversión en el banco. 
+        
+         El decidirá reinvertir los intereses siempre y cuando estos no excedan a $7000, 
+         y en ese caso diseña un algoritmo para saber cuanto dinero tendrá finalmente en su cuenta.
+         */
+        public void condicional5()
+        {
+            double dinero = 0, interes = 0, mes = 0;
+            Pedir("De la cantidad de dinero: $", ref dinero);
+            Pedir("De la cantidad de interes: %", ref interes);
+            Pedir("De la cantidad de meses: ", ref mes);
+
+            if (dinero <= 7000)
+            {
+                double resp = (dinero * interes) / mes;
+                Console.WriteLine("cantidad que tiene en inversión en el banco. $ {0}", resp.ToString("N2"));
+            }
+            else
+                Console.WriteLine("\nSobrepaso los $7000");
+        }
+
+        /*6. Diseñar un algoritmo que lea el nombre de un empleado, su salario básico por hora, 
+        el nro. de horas trabajadas en un mes. Nos pide lo siguiente:
+
+        Calcular su salario mensual adicionalmente el subsidio de transporte, si su sueldo es 
+        mayor o igual a 2 salarios mínimos legal vigente. Tener en cuenta que el salario mínimo 
+        es 9000 córdobas y el subsidio por transporte es 500 córdobas.
+
+        Mostrar: el nombre del empleado, su salario mensual, el subsidio de transporte y su sueldo neto.*/
+
+        public void condicional6()
+        {
+            double salBxHora = 0, nHtrabaj = 0, transp = 5.56, subTransp = 0;
+            string nombre = "";
+
+            Pedir("Ingrese su nombre: ", ref nombre);
+            Pedir("Ingrese su salario basico por hora: ", ref salBxHora);
+            Pedir("Ingrese el número de horas trabajadas en el mes: ", ref nHtrabaj);
+            //160 horas = 20 dias
+            //dias 56.25
+            //salario 9,000
+            //5.56% trasnporte
+            double salMensual = salBxHora * nHtrabaj;
+
+
+            if (salMensual >= 9000 || salMensual >= (9000 * 2))
+            {
+                subTransp = (salMensual * transp) / 100;
+                Console.WriteLine("nombre: {0}", nombre);
+                Console.WriteLine("Salario por Hora: {0}", salBxHora);
+                Console.WriteLine("Horas del mes trabajadas: {0}", nHtrabaj);
+                Console.WriteLine("Salario mensual: {0}", salMensual.ToString("N2"));
+                Console.WriteLine("Subsidio por transporte: {0}", subTransp.ToString("N2"));
+            }
+            else 
+                Console.WriteLine("\nNo llega al salario minimo! \nSu salario mensual fue de: {0}",salMensual.ToString("N2"));
         }
     }
 }

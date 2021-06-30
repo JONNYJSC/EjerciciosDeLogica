@@ -104,7 +104,10 @@ namespace ConsoleApp
             //Ejercicios Algoritmos Condicionales Simples
             //Pract2.condicional1();
             //Pract2.condicional2();
-            Pract2.condicional3();
+            //Pract2.condicional3();
+            //Pract2.condicional4();
+            //Pract2.condicional5();
+            Pract2.condicional6();
 
             Console.ReadKey();
         }
