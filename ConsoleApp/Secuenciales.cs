@@ -64,7 +64,7 @@ namespace ConsoleApp
 
                 suma = valorDia * diasTrab;
 
-                Console.WriteLine("\nNombre: " + nombre + "\nValor del día: " + valorDia + "\nDias Trabajados: " + diasTrab + "\nTotal del pago: " + suma);
+                Console.WriteLine("\nNombre: " + nombre + "\nValor del día: " + valorDia.ToString("N2") + "\nDias Trabajados: " + diasTrab + "\nTotal del pago: " + suma.ToString("N2"));
 
                 Pedir("\nContinuar con otro tranajdor S/N?: ", ref cont);
             } while (cont == 'S' || cont == 's');
@@ -92,16 +92,16 @@ namespace ConsoleApp
                 {
                     case 1:
                         Datos(ref n1, ref n2);
-                        Console.WriteLine("\nSuma: {0}", result = n1 + n2); Console.ReadKey(); Ejercicio3(); break;
+                        Console.WriteLine("\nSuma: {0}", (result = n1 + n2).ToString("N2")); Console.ReadKey(); Ejercicio3(); break;
                     case 2:
                         Datos(ref n1, ref n2);
-                        Console.WriteLine("\nResta: {0}", result = n1 - n2); Console.ReadKey(); Ejercicio3(); break;
+                        Console.WriteLine("\nResta: {0}", (result = n1 - n2).ToString("N2")); Console.ReadKey(); Ejercicio3(); break;
                     case 3:
                         Datos(ref n1, ref n2);
-                        Console.WriteLine("\nMultiplicacion: {0}", result = n1 * n2); Console.ReadKey(); Ejercicio3(); break;
+                        Console.WriteLine("\nMultiplicacion: {0}", (result = n1 * n2).ToString("N2")); Console.ReadKey(); Ejercicio3(); break;
                     case 4:
                         Datos(ref n1, ref n2);
-                        Console.WriteLine("\nDivision: {0}", result = n1 / n2); Console.ReadKey(); Ejercicio3(); break;
+                        Console.WriteLine("\nDivision: {0}", (result = n1 / n2).ToString("N2")); Console.ReadKey(); Ejercicio3(); break;
                     case 5: Console.Write("\nSaliendo! "); break;
                     default:
                         Console.WriteLine("\nError opciones del 1 al 5!"); Console.ReadKey(); Ejercicio3();
@@ -136,7 +136,7 @@ namespace ConsoleApp
                 double aplicarDesc = precio - totalDes;
 
                 Console.Write("\nProducto: {0}", prod);
-                Console.Write("\nPrecio con descuento: {0}", aplicarDesc);
+                Console.Write("\nPrecio con descuento: {0}", aplicarDesc.ToString("N2"));
 
                 Pedir("\n\nDesea realizar otra compra S/N: ", ref resp);
             } while (resp == 'S' || resp == 's');
@@ -157,8 +157,8 @@ namespace ConsoleApp
 
             respF = (niñas * 100) / suma;
 
-            Console.Write("\nEl procentaje de niños es: {0} %", respV.ToString("0.##"));
-            Console.Write("\nEl procentaje de niñas es: {0} %", respF.ToString("0.##"));
+            Console.Write("\nEl procentaje de niños es: {0} %", respV.ToString("N2"));
+            Console.Write("\nEl procentaje de niñas es: {0} %", respF.ToString("N2"));
         }
 
         //Determina su área y volumen de un cilindro, aplicando un radio ingresando
@@ -175,10 +175,10 @@ namespace ConsoleApp
             volumen = Math.PI * Math.Pow(radio, 2) * altura;
             double volumen2 = Math.PI * radio * altura;
 
-            Console.Write("\nArea con PI: {0} PI", area2.ToString("0.##"));
-            Console.Write("\nArea: {0}", area.ToString("0.##"));
-            Console.Write("\nVolumen con PI: {0} PI", volumen2.ToString("0.##"));
-            Console.Write("\nVolumen: {0}", volumen.ToString("0.##"));
+            Console.Write("\nArea con PI: {0} PI", area2.ToString("N2"));
+            Console.Write("\nArea: {0}", area.ToString("N2"));
+            Console.Write("\nVolumen con PI: {0} PI", volumen2.ToString("N2"));
+            Console.Write("\nVolumen: {0}", volumen.ToString("N2"));
         }
 
         //Diseñar un algoritmo que lea por consola el valor de una factura, en este
@@ -191,8 +191,8 @@ namespace ConsoleApp
             double conv = (fact * igv) / 100;
             double resp = fact + conv;
 
-            Console.Write("\nIGV del 18%: {0}", conv.ToString("0.##"));
-            Console.Write("\nAplicando IGV: {0}", resp.ToString("0.##"));
+            Console.Write("\nIGV del 18%: {0}", conv.ToString("N2"));
+            Console.Write("\nAplicando IGV: {0}", resp.ToString("N2"));
         }
 
         //Realizar un algoritmo de tipo de cambio de moneda sabiendo que
@@ -206,7 +206,7 @@ namespace ConsoleApp
                 Pedir("Ingrese el valor del dólar actual: ", ref dolarAcord);
                 Pedir("Ingrese la cantidad en dólares: ", ref dolar);
                 resp = dolarAcord * dolar;
-                Console.Write("Cambio a moneda Córdoba: {0} ", resp.ToString("0.##"));
+                Console.Write("Cambio a moneda Córdoba: {0} ", resp.ToString("N2"));
 
                 Pedir("\nDesea seguir S/N: ", ref r);
             } while (r == 'S' || r == 's');
@@ -234,7 +234,7 @@ namespace ConsoleApp
             double n3 = notas[2] * 30 / 100;
 
             double suma = n1 + n2 + n3;
-            Console.WriteLine("\nNota Final {0}", suma);
+            Console.WriteLine("\nNota Final {0}", suma.ToString("N2"));
         }
 
         //Defina un algoritmo que permita calcular el nuevo salario de un trabajador si a
@@ -245,7 +245,7 @@ namespace ConsoleApp
             Pedir("De su salario: ", ref sal);
             double calc = sal * 25 / 100;
             double nuevoSal = sal + calc;
-            Console.WriteLine("\nSalario anterior {0} aumento del 25% {1}", sal, nuevoSal);
+            Console.WriteLine("\nSalario anterior {0} aumento del 25% {1}", sal.ToString("N2"), nuevoSal.ToString("N2"));
         }
 
         /*
@@ -278,12 +278,12 @@ namespace ConsoleApp
             double exf = exfinal * 30 / 100;
             double trabF = trab * 15 / 100;
 
-            Console.WriteLine("\nNota de examenes parciales: {0}", nParcF.ToString("0.##"));
-            Console.WriteLine("\nNota de examen final: {0}", exf);
-            Console.WriteLine("\nNota de trabajo final: {0}", trabF);
+            Console.WriteLine("\nNota de examenes parciales: {0}", nParcF.ToString("N2"));
+            Console.WriteLine("\nNota de examen final: {0}", exf.ToString("N2"));
+            Console.WriteLine("\nNota de trabajo final: {0}", trabF.ToString("N2"));
 
             double nFinal = nParcF + exf + trabF;
-            Console.WriteLine("\nCalificación Final de Matemáticas es: {0}", nFinal.ToString("0.##"));
+            Console.WriteLine("\nCalificación Final de Matemáticas es: {0}", nFinal.ToString("N2"));
         }
 
         /*
@@ -309,15 +309,15 @@ namespace ConsoleApp
             double seguroInv = (diasMult * 1.36) / 100;
             double salActual = diasMult - pension;
 
-            Console.Write("\nSalario de dias trabajados sin deducciones: {0}", diasMult.ToString("0.##"));
-            Console.Write("\nCantidad de dias trabajados: {0}", diasTrab.ToString("0.##"));
-            Console.Write("\nSalario diario: {0}", salDia.ToString("0.##"));
-            Console.Write("\nPension del 11.74%: {0}", pension.ToString("0.##"));
-            Console.Write("\nIngreso a su AFP 10%: {0}", afp.ToString("0.##"));
-            Console.Write("\nCobro por la administración 0.38%: {0}", invFondo.ToString("0.##"));
-            Console.Write("\nSeguro de Invalidez: {0}", seguroInv.ToString("0.##"));
-            Console.Write("\nDeducciones: {0}", pension.ToString("0.##"));
-            Console.Write("\nSalario de dias trabajados con deducciones: {0}", salActual.ToString("0.##"));
+            Console.Write("\nSalario de dias trabajados sin deducciones: {0}", diasMult.ToString("N2"));
+            Console.Write("\nCantidad de dias trabajados: {0}", diasTrab.ToString("N2"));
+            Console.Write("\nSalario diario: {0}", salDia.ToString("N2"));
+            Console.Write("\nPension del 11.74%: {0}", pension.ToString("N2"));
+            Console.Write("\nIngreso a su AFP 10%: {0}", afp.ToString("N2"));
+            Console.Write("\nCobro por la administración 0.38%: {0}", invFondo.ToString("N2"));
+            Console.Write("\nSeguro de Invalidez: {0}", seguroInv.ToString("N2"));
+            Console.Write("\nDeducciones: {0}", pension.ToString("N2"));
+            Console.Write("\nSalario de dias trabajados con deducciones: {0}", salActual.ToString("N2"));
         }
     }
 }
