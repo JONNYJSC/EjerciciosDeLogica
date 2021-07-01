@@ -107,7 +107,9 @@ namespace ConsoleApp
             //Pract2.condicional3();
             //Pract2.condicional4();
             //Pract2.condicional5();
-            Pract2.condicional6();
+            //Pract2.condicional6();
+            //Pract2.condicional7();
+            Pract2.condicional8();
 
             Console.ReadKey();
         }

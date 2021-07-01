@@ -161,8 +161,64 @@ namespace ConsoleApp
                 Console.WriteLine("Salario mensual: {0}", salMensual.ToString("N2"));
                 Console.WriteLine("Subsidio por transporte: {0}", subTransp.ToString("N2"));
             }
-            else 
-                Console.WriteLine("\nNo llega al salario minimo! \nSu salario mensual fue de: {0}",salMensual.ToString("N2"));
+            else
+                Console.WriteLine("\nNo llega al salario minimo! \nSu salario mensual fue de: {0}", salMensual.ToString("N2"));
+        }
+
+        /*Diseñe un algoritmo que lea el nombre del estudiante, el valor de su matricula en un 
+        diplomado que responda si¿ Es egresado de la universidad?, si la respuesta es SI, se le 
+        aplica un 25 % descuento. Muestre el nombre del estudiante y el valor de la matricula a pagar.*/
+        public void condicional7()
+        {
+            double matricula = 0, aplDes = 0;
+            string nombre = "", s1 = "", s2 = "SI";
+
+            Pedir("Nombre del estudiante: ", ref nombre);
+            Pedir("¿Es egresado de la universidad? Si/No: ", ref s1);
+            s1 = s1.ToUpper();
+            int s = String.Compare(s1, s2);
+            if (s >= 0)
+            {
+                Pedir("Pagar matricula: ", ref matricula);
+                double des = (matricula * 25) / 100;
+                aplDes = matricula - des;
+
+                Console.WriteLine("\nNombre: {0}", nombre);
+                Console.WriteLine("Matricula: {0}", aplDes);
+            }
+            else if (s < 0)
+            {
+                Pedir("Pagar matricula: ", ref matricula);
+
+                Console.WriteLine("\nNombre: {0}", nombre);
+                Console.WriteLine("Matricula: {0}", matricula);
+            }
+        }
+
+        /*Diseñar un algoritmo que muestre si una persona tiene ingresos o no, pero para ser mas 
+        específicos se responderá a las siguientes preguntas:
+
+         * Si no tiene efectivo entonces esta en nros rojos.
+
+         * Si tiene poco efectivo menor a 1000, que muestre que debe trabajar mas.
+
+         * Si tiene un efectivo menor a 2000 entonces significa que le va regularmente bien.
+
+         * Si tiene un efectivo mayor a 2000 entonces significa que tiene buen status financiero.*/
+        public void condicional8()
+        {
+            double ingreso = 0;
+
+            Pedir("Ingresos: ", ref ingreso);
+            
+            if(ingreso == 0)
+                Console.WriteLine("Su efectivo esta en números rojos");
+            else if (ingreso <= 1000)
+                Console.WriteLine("Debe trabajar mas");
+            else if (ingreso > 1000 || ingreso <= 2000)
+                Console.WriteLine("Le va regularmente bien");
+            else if (ingreso > 2000)
+                Console.WriteLine("Tiene buen status financiero");
         }
     }
 }
