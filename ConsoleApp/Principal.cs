@@ -83,7 +83,7 @@ namespace ConsoleApp
             //Console.WriteLine(c);
             //resultado7();
 
-            Secuenciales Pract1 = new Secuenciales();
+            //Secuenciales Pract1 = new Secuenciales();
 
             //Ejercicios Algoritmos Secuenciales
             //Pract1.Ejercicio1();
@@ -99,7 +99,7 @@ namespace ConsoleApp
             //Pract1.Ejercicio11();
             //Pract1.Ejercicio12();
 
-            CondicionalesSimples Pract2 = new CondicionalesSimples();
+            //CondicionalesSimples Pract2 = new CondicionalesSimples();
 
             //Ejercicios Algoritmos Condicionales Simples
             //Pract2.condicional1();
@@ -109,7 +109,10 @@ namespace ConsoleApp
             //Pract2.condicional5();
             //Pract2.condicional6();
             //Pract2.condicional7();
-            Pract2.condicional8();
+            //Pract2.condicional8();
+
+            CondicionalDoble Pract3 = new CondicionalDoble();
+            Pract3.condDoble1();
 
             Console.ReadKey();
         }
