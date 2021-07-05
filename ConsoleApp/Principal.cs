@@ -71,8 +71,24 @@ namespace ConsoleApp
             n = int.Parse(Console.ReadLine());
         }
 
+        //Devuelve el numero de la posicion del string (LINQ)
+        static void cad()
+        {
+            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            int firstItem = digits.Select((item, index) => new
+            {
+                ItemName = item,
+                Position = index
+            }).Where(i => i.ItemName == "two")
+             .First()
+             .Position;
+
+            Console.WriteLine(firstItem);
+        }
+
         static void Main(string[] args)
         {
+            //cad();
             //int[] arr = { 9, 3, 9, 3, 9, 7, 9 };
             //int[] arr2 = { 1, 2, 3, 4, 10, 11, 5 };
             //int a = solution(arr);
@@ -112,7 +128,18 @@ namespace ConsoleApp
             //Pract2.condicional8();
 
             CondicionalDoble Pract3 = new CondicionalDoble();
-            Pract3.condDoble1();
+            //Pract3.condDoble1();
+            //Pract3.condDoble2();
+            //Pract3.condDoble3();
+            //Pract3.condDoble4();
+            //Pract3.condDoble5();
+            //Pract3.condDoble6();
+            //Pract3.condDoble7();
+            //Pract3.condDoble8();
+            //Pract3.condDoble9();
+            //Pract3.condDoble10();
+            //Pract3.condDoble11();
+            Pract3.condDoble12();
 
             Console.ReadKey();
         }
