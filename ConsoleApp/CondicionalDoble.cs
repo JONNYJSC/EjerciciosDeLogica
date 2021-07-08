@@ -433,17 +433,56 @@ namespace ConsoleApp
                 Pedir("De el precio: ", ref precio);
                 suma += precio;
 
-              Pedir("Desea realizar otra compra S/N: ", ref resp);
+                Pedir("Desea realizar otra compra S/N: ", ref resp);
             } while (resp == 'S' || resp == 's');
 
-            if(suma < 1000)
+            if (suma < 1000)
             {
                 comision = (suma * 3) / 100;
                 Console.Write("\nComisión del vendedor es de: {0}", comision.ToString("N2"));
-            } else if(suma > 1000)
+            }
+            else if (suma > 1000)
             {
                 comision = (suma * 5) / 100;
                 Console.Write("\nComisión del vendedor es de: {0}", comision.ToString("N2"));
+            }
+        }
+
+        public void orden()
+        {
+            int[] n = new[] { 1, 8, 5, 6, 4 };
+
+            Console.WriteLine("\nImpresion con for");
+            for (int i = 0; i < n.Length; i++)
+            {
+                Console.Write(" {0} ", n[i]);
+            }
+            Console.WriteLine("\nOrdenando array con LINQ: int[] m = n.OrderBy(x => x).ToArray();");
+            int[] m = n.OrderBy(x => x).ToArray();
+            for (int i = 0; i < m.Length; i++)
+            {
+                Console.Write(" {0} ", m[i]);
+            }
+            int f = n.FirstOrDefault();
+            Console.WriteLine("\nPrimer elemento: {0}", f);
+            int w = n.LastOrDefault();
+            Console.WriteLine("\nÚltimo elemento: {0}", w);
+            int g = n.Max();
+            Console.WriteLine("\nmaximo: {0}", g);
+            int h = n.Min();
+            Console.WriteLine("\nmanimo: {0}", h);
+
+            Console.WriteLine("Impresion inversa LINQ: Reverse()");
+            IEnumerable<int> j = n.Reverse();
+            foreach (var l in j)
+            {
+                Console.Write(l + " ");
+            }
+
+            Console.WriteLine("\nImpresion for reversa");
+            for (int q = n.Length - 1; q >= 0; q--)
+            {
+                Console.Write(n[q] + " ");
             }
         }
     }

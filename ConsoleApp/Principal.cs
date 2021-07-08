@@ -139,7 +139,8 @@ namespace ConsoleApp
             //Pract3.condDoble9();
             //Pract3.condDoble10();
             //Pract3.condDoble11();
-            Pract3.condDoble12();
+            //Pract3.condDoble12();
+            Pract3.orden();
 
             Console.ReadKey();
         }
